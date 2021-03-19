@@ -1,5 +1,5 @@
 #FROM tensorflow/tensorflow:latest-py3
-FROM jupyter/scipy-notebook:
+FROM jupyter/scipy-notebook
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
