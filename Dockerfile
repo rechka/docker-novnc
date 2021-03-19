@@ -1,6 +1,5 @@
 #FROM tensorflow/tensorflow:latest-py3
-FROM tensorflow/tensorflow:latest-gpu-py3
-LABEL maintainer="veggiebenz@gmail.com"
+FROM jupyter/scipy-notebook:
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
@@ -44,6 +43,8 @@ ADD docker-ubuntu-novnc/startup.sh /
 ADD docker-ubuntu-novnc/supervisord.conf /etc/supervisor/conf.d/
 ADD docker-ubuntu-novnc/doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
-EXPOSE 6080 11311 9090 5900
+EXPOSE 6080 11311 9090 5900 8888
 WORKDIR /root
+ENTRYPOINT ["tini", "-g", "--"]
 ENTRYPOINT ["/startup.sh"]
+CMD ["start-notebook.sh"]
