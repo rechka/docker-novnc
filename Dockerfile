@@ -45,6 +45,4 @@ ADD docker-ubuntu-novnc/doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 EXPOSE 6080 11311 9090 5900 8888
 WORKDIR /root
-ENTRYPOINT ["tini", "-g", "--"]
 ENTRYPOINT ["/startup.sh"]
-CMD ["start-notebook.sh"]
